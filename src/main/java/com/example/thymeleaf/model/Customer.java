@@ -22,14 +22,15 @@ public class Customer {
         this.postalCode = postalCode;
     }
 
+    @NotNull(message = "is required")
     @Min(value = 0, message = "must be greater than or equal to zero")
     @Max(value = 10, message = "must be less than or equal to 10")
-    private int freePasses;
-    public int getFreePasses() {
+    private Integer freePasses;
+    public Integer getFreePasses() {
         return freePasses;
     }
 
-    public void setFreePasses(int freePasses) {
+    public void setFreePasses(Integer freePasses) {
         this.freePasses = freePasses;
     }
 
