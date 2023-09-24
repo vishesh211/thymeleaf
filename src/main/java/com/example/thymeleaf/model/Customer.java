@@ -1,10 +1,8 @@
 package com.example.thymeleaf.model;
 
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import org.intellij.lang.annotations.RegExp;
 
 public class Customer {
     private String firstName;
@@ -12,6 +10,17 @@ public class Customer {
     @NotNull(message = "is required")
     @Size(min = 1, message = "is required")
     private String lastName;
+
+    @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars/digits")
+    private String postalCode;
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
 
     @Min(value = 0, message = "must be greater than or equal to zero")
     @Max(value = 10, message = "must be less than or equal to 10")
