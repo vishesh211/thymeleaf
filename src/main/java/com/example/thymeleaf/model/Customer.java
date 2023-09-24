@@ -1,8 +1,8 @@
 package com.example.thymeleaf.model;
 
 
+import com.example.thymeleaf.validation.CourseCode;
 import jakarta.validation.constraints.*;
-import org.intellij.lang.annotations.RegExp;
 
 public class Customer {
     private String firstName;
@@ -20,6 +20,17 @@ public class Customer {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    @CourseCode(value = "TOPS", message = "must start with TOPS")
+    private String courseCode;
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
     }
 
     @NotNull(message = "is required")
